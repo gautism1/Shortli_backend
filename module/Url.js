@@ -5,9 +5,9 @@ const urlschema= new mongoose.Schema(
          longurl:String,
          shorturl:String,
          date:{
-             type:String,
-             default:Date.now
+              type:Date,
+              default:Date.now
          }
     }
 );
-module.exports=mongoose.model('Url',urlschema)
+module.exports=mongoose.model('url',urlschema)

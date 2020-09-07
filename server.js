@@ -6,14 +6,13 @@ const connectdb =require('./config/db');
 
 // Database connecting
 connectdb();
+
 app.use(express.json({extended : false}));
-
-
 //defing routes
 
-app.use('/' ,require('./routes/index.js'))
+app.use('/', require('./routes/url.js'))
 
-app.use('/api/url', require('./routes/url'))
+app.use('/api/url', require('./routes/index.js'))
 
 const port =5000;
 
