@@ -1,8 +1,0 @@
-
-POST http://localhost:5000/api/url/shorten
-Content-Type:application/json
-{
-
-    "longurl" : "https://www.amazon.com/Bing-Crosby-Rediscovered
-    -Robert-Trachtenberg/dp/B00QU7OND2/ref=sr_1_1?dchild=1&keywords=bing&qid=1596394776&sr=8-1"
-}
