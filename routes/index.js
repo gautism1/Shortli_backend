@@ -8,14 +8,15 @@ router.get('/:code',async (req,res) =>
     try 
     {
            const url=await urL.findOne({urlCode:req.params.code});  
-           let presentdate=new Date();
+           console.log("garju",url)
+           let presentdate=new Date();         
            let checkdate=(presentdate-url.date)/(1000*60*60);
     if(url)
        { 
            if(checkdate>24)
                 return res.json("Your Url is valid for 1 day ,Please try our one of our Preminum packa");
                 else
-                  return res.redirect(url.longurl);
+                return res.redirect(url.longurl);
        }
     else 
        {
@@ -25,7 +26,7 @@ router.get('/:code',async (req,res) =>
    catch(err)
    {
      console.log(err);
-    res.status(500).json('server error');
+     res.status(500).json('server error');
    }
 }
 );

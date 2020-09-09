@@ -20,45 +20,31 @@ router.post('/shorten', async (req, res) => {
         }
     let urlCode = shortid.generate();
     //running uptill
-    
     if (validurl.isUri(longurl)) {
         try {
           //  let Url = url.findOne({longurl});    
-    url.findOne({longurl}).then((data)=>{
-        //works fine uptill here
-          //running uptill here  
-          // agar dataa m kuch hoga toh purana vala hi bhej denge
+    url.findOne({longurl}).then((data)=>{ 
             if(data) {
                    res.json(data.shorturl);
             } 
             else{            
                  let shorturl = baseurl + urlCode;
-                 url = new url({
+                 newurl = new url({
                      longurl,
                      shorturl,
                      urlCode,
                      date: new Date()
                  });
-                  url.save();
-                 res.json(url);
+                  newurl.save();
+                 res.json(newurl);
 //Yahan new data insert kara diaa
             }
     }).catch((err)=>{
         console.log("Eeeeeee error a gyi ", err);
     })
- 
-           {           
-            //   let shorturl = baseurl + urlCode;
-            //     url = new url({
-            //         longurl,
-            //         shorturl,
-            //         urlCode,
-            //         date: new Date()
-            //     });
-            //     await url.save();
-            //     res.json(url);
-            }
-        } catch (err) {
+        }
+        
+         catch (err) {
             console.log(err);
             res.status(500).json('server error not running');
         }

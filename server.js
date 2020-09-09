@@ -9,12 +9,11 @@ connectdb();
 
 app.use(express.json({extended : false}));
 //defing routes
-
-app.use('/', require('./routes/url.js'))
+app.use('/:code', require('./routes/index.js'))
 
 app.use('/',require('./routes/allurl.js'));
 
-app.use('/api/url', require('./routes/index.js'))
+app.use('/', require('./routes/url.js'))
 
 const port =5000;
 
