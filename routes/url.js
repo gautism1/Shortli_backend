@@ -7,41 +7,56 @@ let url = require('../module/url');
 const bodyParser = require('body-parser');
 //@route  POST /api.url.shorten
 //@desc  Create short url
+//const {urlSchema}=require(url);
 router.use(bodyParser.urlencoded({
     extended: true
 }));
 router.post('/shorten', async (req, res) => {
     // console.log("asadjada",req.body);
-    const {
-        longurl
-    } = req.body;
-    const baseurl = config.get('baseURL');
-    if (!validurl.isUri(baseurl)) {
-        return res.status(401).json('invalid base url');
-    }
+    const {longurl} = req.body;   
+    const baseurl = config.get('baseURL');       
+        if (!validurl.isUri(baseurl)) {
+           return res.status(401).json('invalid base url');
+        }
     let urlCode = shortid.generate();
-    //check for longurl
-    console.log("garjuus", urlCode);
-    //running uptill here::
+    //running uptill
+    
     if (validurl.isUri(longurl)) {
         try {
-            let Url = url.findOne({
-                longurl
-            });
-            // console.log('gasaa',Url);
-            //running uptill here
-            if (!Url) {
-                res.json(Url);
-            } else {
-              let shorturl = baseurl + urlCode;
-                url = new url({
-                    longurl,
-                    shorturl,
-                    urlCode,
-                    date: new Date()
-                });
-                await url.save();
-                res.json(url);
+          //  let Url = url.findOne({longurl});    
+    url.findOne({longurl}).then((data)=>{
+        //works fine uptill here
+          //running uptill here  
+          // agar dataa m kuch hoga toh purana vala hi bhej denge
+            if(data) {
+                   res.json(data.shorturl);
+            } 
+            else{            
+                 let shorturl = baseurl + urlCode;
+                 url = new url({
+                     longurl,
+                     shorturl,
+                     urlCode,
+                     date: new Date()
+                 });
+                  url.save();
+                 res.json(url);
+//Yahan new data insert kara diaa
+            }
+    }).catch((err)=>{
+        console.log("Eeeeeee error a gyi ", err);
+    })
+ 
+           {           
+            //   let shorturl = baseurl + urlCode;
+            //     url = new url({
+            //         longurl,
+            //         shorturl,
+            //         urlCode,
+            //         date: new Date()
+            //     });
+            //     await url.save();
+            //     res.json(url);
             }
         } catch (err) {
             console.log(err);
@@ -53,3 +68,7 @@ router.post('/shorten', async (req, res) => {
 });
 
 module.exports = router;
+
+//Yahan tak chal rha h lekin repeat ho raha here
+// ab mujrnhi pata kese karna here
+//blah blah

@@ -1,4 +1,4 @@
 {
     "mongoURI":"mongodb+srv://iamgautiNow:HOpkuu1eWGx2EPkT@heyme.gj0kw.mongodb.net/shortli?retryWrites=true&w=majority",
-    "baseURL":"http://localhost:5000"
+    "baseURL":"http://localhost:5000/"
 }
