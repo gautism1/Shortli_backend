@@ -5,14 +5,13 @@ const shortid = require('shortid');
 const config = require('config');
 let url = require('../module/url');
 const bodyParser = require('body-parser');
-//@route  POST /api.url.shorten
-//@desc  Create short url
-//const {urlSchema}=require(url);
+
 router.use(bodyParser.urlencoded({
     extended: true
 }));
+
 router.post('/shorten', async (req, res) => {
-    // console.log("asadjada",req.body);
+
     const {longurl} = req.body;   
     const baseurl = config.get('baseURL');       
         if (!validurl.isUri(baseurl)) {
@@ -25,7 +24,7 @@ router.post('/shorten', async (req, res) => {
           //  let Url = url.findOne({longurl});    
     url.findOne({longurl}).then((data)=>{ 
             if(data) {
-                   res.json(data.shorturl);
+                   res.json(data);
             } 
             else{            
                  let shorturl = baseurl + urlCode;

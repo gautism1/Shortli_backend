@@ -3,8 +3,8 @@ const router = express.Router();
 let url = require('../module/url');
 router.get('/allurls', async (req,res) =>
 {
-    console.log("me first");
-      url.find({}).then((data) =>{
+     
+    await  url.find({}).then((data) =>{
           if(data)
            res.send(data);
            else {
