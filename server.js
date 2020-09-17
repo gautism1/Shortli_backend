@@ -1,5 +1,5 @@
 const express=require('express');
-require('dotenv').config();
+
 
 const app=express();
 var cors = require('cors');
@@ -14,12 +14,14 @@ app.use(function(req, res, next) {
 const connectdb =require('./config/db');
 // Database connecting
 connectdb();
-process.env.NODE_ENV = 'production'
+
 app.use(express.json({extended : false}));
 //defing routes
  app.use('/', require('./routes/url.js'))
 app.use('/',require('./routes/allurl.js'));
 app.use('/', require('./routes/index.js'))
+
+
 
 const port =process.env.PORT || 5000   ;
 
