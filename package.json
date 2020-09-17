@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": " node server.js ",
-    "dev": "nodemon server",
-    "build:deploy": "cross-env NODE_ENV=production webpack"
+    "dev": "nodemon server"
+    
   },
   "author": "gauti",
   "license": "ISC",
