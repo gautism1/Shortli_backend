@@ -14,7 +14,7 @@ app.use(function(req, res, next) {
 const connectdb =require('./config/db');
 // Database connecting
 connectdb();
-process.env.NODE_ENV === 'production'
+process.env.NODE_ENV = 'production'
 app.use(express.json({extended : false}));
 //defing routes
  app.use('/', require('./routes/url.js'))
