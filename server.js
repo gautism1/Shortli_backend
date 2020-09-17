@@ -22,6 +22,6 @@ app.use('/', require('./routes/index.js'))
 
 
 
-const port =5000;
+const port =5000 || process.env.PORT ;
 
 app.listen(port,() => console.log(`running at port ${port}`))
