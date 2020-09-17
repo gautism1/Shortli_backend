@@ -1,10 +1,10 @@
 {
-  "name": "shortli",
+  "name": "shortlii",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set NODE_ENV=PRODUCTION && nodemon server.js",
+    "start": "node server.js",
     "dev": "nodemon server"
   },
   "author": "",
