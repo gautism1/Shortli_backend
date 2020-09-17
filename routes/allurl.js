@@ -13,7 +13,7 @@ router.get('/allurls', async (req,res) =>
       }).catch((err) =>
       {
           console.log("something went wrong",err)
-          res.send(err);
+          res.send("something went wrong",err);
       });      
 });
 module.exports=router;

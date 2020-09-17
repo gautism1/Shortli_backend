@@ -15,13 +15,13 @@ const connectdb =require('./config/db');
 // Database connecting
 connectdb();
 
+app.get('/',(req,res)=>
+res.send("hello world"))
 app.use(express.json({extended : false}));
 //defing routes
  app.use('/', require('./routes/url.js'))
 app.use('/',require('./routes/allurl.js'));
 app.use('/', require('./routes/index.js'))
-
-
 
 const port =process.env.PORT || 5000   ;
 
