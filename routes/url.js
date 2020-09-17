@@ -53,7 +53,4 @@ router.post('/shorten', async (req, res) => {
 });
 
 module.exports = router;
-
-//Yahan tak chal rha h lekin repeat ho raha here
-// ab mujrnhi pata kese karna here
-//blah blah
+ 
