@@ -1,1 +1,1 @@
- web: node server.js
+ heroku local web: node server.js
