@@ -1,6 +1,6 @@
 const express=require('express');
 const router=express.Router();
-const urL=require( '../module/url');
+const urL=require( '../models/url');
 // GET
 //DESCRIPTION GOING TO LON/ORIGINAL url
 router.get('/:code',async (req,res) =>
