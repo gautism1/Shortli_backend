@@ -24,9 +24,9 @@ connectdb();
 
 app.use(express.json({extended : false}));
 //defing routes
-//  app.use('/', require('./routes/url.js'))
+ app.use('/', require('./routes/url.js'))
  app.use('/',require('./routes/allurl.js'));
-// app.use('/', require('./routes/index.js'))
+  app.use('/', require('./routes/index.js'))
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
