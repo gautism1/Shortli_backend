@@ -3,7 +3,7 @@ const router = express.Router();
 const validurl = require('valid-url');
 const shortid = require('shortid');
 const config = require('config');
-let url = require('../module/url');
+let url = require('../models/url');
 const bodyParser = require('body-parser');
 
 router.use(bodyParser.urlencoded({

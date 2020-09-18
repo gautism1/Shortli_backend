@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-let url = require('../module/url');
+let url = require('../models/url');
 router.get('/allurls', async (req,res) =>
 {
      
