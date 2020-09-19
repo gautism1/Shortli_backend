@@ -9,7 +9,6 @@ const bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({
     extended: true
 }));
-
 router.post('/shorten', async (req, res) => {
 
     const {longurl} = req.body;   
@@ -42,8 +41,7 @@ router.post('/shorten', async (req, res) => {
         console.log("Eeeeeee error a gyi ", err);
     })
         }
-        
-         catch (err) {
+            catch (err) {
             console.log(err);
             res.status(500).json('server error not running');
         }
@@ -51,6 +49,5 @@ router.post('/shorten', async (req, res) => {
         res.status(401).json('Url wss not appropriate')
     }
 });
-
 module.exports = router;
  
